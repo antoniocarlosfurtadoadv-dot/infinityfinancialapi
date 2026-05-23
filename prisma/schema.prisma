@@ -1,0 +1,191 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/core/database/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Tenant {
+  id           String        @id @default(uuid())
+  name         String
+  description  String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  users        User[]
+  logs         Log[]
+  subscription Subscription?
+
+  @@map("tenants")
+}
+
+model User {
+  id                 String  @id @default(uuid())
+  name               String
+  email              String  @unique
+  password           String
+  profileImageUrl    String? @map("profile_image_url")
+  mustChangePassword Boolean @default(false) @map("must_change_password")
+  status             String  @default("ACTIVE") //active, inactive, pending
+
+  roleProfileId String?      @map("role_profile_id")
+  roleProfile   RoleProfile? @relation(fields: [roleProfileId], references: [id])
+
+  tenantId String?
+  tenant   Tenant? @relation(fields: [tenantId], references: [id])
+
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  deletedAt     DateTime?
+  logs          Log[]
+  refreshTokens RefreshToken[]
+  userTokens    UserToken[]
+
+  @@map("users")
+}
+
+model RoleProfile {
+  id                 String   @id @default(uuid())
+  name               String
+  description        String?
+  defaultPermissions String[] @map("default_permissions")
+
+  users     User[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@map("role_profiles")
+}
+
+model Log {
+  id        String   @id @default(uuid())
+  action    String
+  entity    String
+  entityId  String?
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  tenantId  String?
+  tenant    Tenant?  @relation(fields: [tenantId], references: [id])
+  metadata  Json?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("logs")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  expiresAt DateTime @map("expires_at")
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  deviceFingerprint String? @map("device_fingerprint")
+  userAgent         String? @map("user_agent")
+  ipAddress         String? @map("ip_address")
+
+  userId String @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([userId, deviceFingerprint])
+  @@map("refresh_tokens")
+}
+
+model UserToken {
+  id           String   @id @default(uuid())
+  token        String   @unique // SHA-256 hash of the plain token
+  type         String // FORGOT_PASSWORD, FIRST_ACCESS
+  code         String? // SHA-256 hash of 4-digit code (FORGOT_PASSWORD only)
+  codeVerified Boolean? @default(false) @map("code_verified")
+  expiresAt    DateTime @map("expires_at")
+  used         Boolean  @default(false)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  userId String @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@map("user_tokens")
+}
+
+model Plan {
+  id           String  @id @default(uuid())
+  name         String  @unique
+  description  String?
+  price        Decimal @db.Decimal(10, 2)
+  billingCycle String  @default("MONTHLY") @map("billing_cycle") // MONTHLY, ANNUAL
+
+  maxUsers     Int?     @map("max_users")
+  maxStorageMb Int?     @map("max_storage_mb")
+  features     String[]
+
+  isActive  Boolean @default(true) @map("is_active")
+  isPublic  Boolean @default(true) @map("is_public")
+  trialDays Int     @default(0) @map("trial_days")
+
+  subscriptions Subscription[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("plans")
+}
+
+model Subscription {
+  id String @id @default(uuid())
+
+  tenantId String @unique @map("tenant_id")
+  tenant   Tenant @relation(fields: [tenantId], references: [id])
+
+  planId String @map("plan_id")
+  plan   Plan   @relation(fields: [planId], references: [id])
+
+  status String @default("TRIAL") // TRIAL, ACTIVE, PAST_DUE, CANCELED, EXPIRED
+
+  trialEndsAt        DateTime? @map("trial_ends_at")
+  currentPeriodStart DateTime  @map("current_period_start")
+  currentPeriodEnd   DateTime  @map("current_period_end")
+
+  canceledAt             DateTime? @map("canceled_at")
+  externalSubscriptionId String?   @map("external_subscription_id")
+  notes                  String?
+
+  invoices Invoice[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@map("subscriptions")
+}
+
+model Invoice {
+  id String @id @default(uuid())
+
+  subscriptionId String       @map("subscription_id")
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id])
+
+  amount   Decimal @db.Decimal(10, 2)
+  currency String  @default("BRL")
+  status   String  @default("PENDING") // PENDING, PAID, FAILED, REFUNDED
+
+  dueDate           DateTime  @map("due_date")
+  paidAt            DateTime? @map("paid_at")
+  externalInvoiceId String?   @map("external_invoice_id")
+  description       String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([subscriptionId])
+  @@map("invoices")
+}

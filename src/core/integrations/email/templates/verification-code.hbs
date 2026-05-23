@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Código de Verificação</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #F5F7FE;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+    }
+
+    .header {
+      background-color: #023DFF;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .content p {
+      color: #333333;
+      font-size: 15px;
+      line-height: 22px;
+      margin: 0 0 16px 0;
+    }
+
+    .code-box {
+      background-color: #F5F7FE;
+      border: 1px solid #d0d5e8;
+      padding: 24px;
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    .verification-code {
+      color: #023DFF;
+      font-size: 40px;
+      font-weight: bold;
+      letter-spacing: 10px;
+      margin: 0;
+    }
+
+    .notice {
+      border-left: 3px solid #023DFF;
+      padding: 12px 15px;
+      margin: 20px 0;
+      background-color: #F5F7FE;
+    }
+
+    .notice p {
+      color: #555555;
+      font-size: 13px;
+      line-height: 20px;
+      margin: 0;
+    }
+
+    .footer {
+      border-top: 1px solid #dddddd;
+      padding: 16px 30px;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #aaaaaa;
+      font-size: 12px;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Código de Verificação</h1>
+    </div>
+
+    <div class="content">
+      <p>Olá, <strong>{{userName}}</strong>.</p>
+
+      <p>Você solicitou acesso à sua conta. Use o código de verificação abaixo para concluir o login:</p>
+
+      <div class="code-box">
+        <p class="verification-code">{{code}}</p>
+      </div>
+
+      <p style="text-align: center; color: #666666; font-size: 13px;">Este código expira em <strong>5 minutos</strong>.
+      </p>
+
+      <div class="notice">
+        <p><strong>Aviso de segurança:</strong> Se você não solicitou este código, ignore este e-mail e verifique a
+          segurança da sua conta.</p>
+      </div>
+
+      <p style="color: #aaaaaa; font-size: 13px;">Por segurança, nunca compartilhe este código com ninguém.</p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; {{year}} Atlas Ecolab. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</body>
+
+</html>

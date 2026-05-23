@@ -1,0 +1,390 @@
+<html lang='pt-BR'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Boas-vindas - Atlas Ecolab</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+
+      img {
+        border: 0;
+        display: block;
+        line-height: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .wrapper {
+        width: 100%;
+        table-layout: fixed;
+        background-color: #ffffff;
+      }
+
+      .main {
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-left: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+      }
+
+      .header {
+        padding: 32px 24px;
+        border-bottom: 1px solid #ededed;
+        text-align: center;
+      }
+
+      .logo {
+        width: 94px;
+        max-width: 94px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        background-image: url('https://pub-00365c6f18d64e1f962879394176d9e9.r2.dev/public/background-welcome.png');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: contain;
+        text-align: center;
+      }
+
+      .hero-space {
+        height: 320px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+        line-height: 56px;
+        font-weight: 700;
+        color: #071c5f;
+        margin: 0;
+        padding: 110px 20px 0 20px;
+        text-align: center;
+      }
+
+      .content {
+        padding: 0 40px;
+      }
+
+      .text {
+        font-size: 15px;
+        line-height: 24px;
+        color: #071c5f;
+        margin: 0;
+      }
+
+      .text-spacer {
+        height: 28px;
+        line-height: 28px;
+        font-size: 0;
+      }
+
+      .bold {
+        font-weight: 700;
+      }
+
+      .field-wrap {
+        padding: 0 40px;
+      }
+
+      .field-label {
+        font-size: 16px;
+        line-height: 24px;
+        color: #5d678a;
+        text-align: center;
+        padding-bottom: 8px;
+      }
+
+      .box {
+        background-color: #f6f6fa;
+        border: 1px solid #ebedf0;
+        border-radius: 6px;
+        padding: 16px;
+        font-size: 20px;
+        line-height: 28px;
+        color: #071c5f;
+        text-align: center;
+        word-break: break-word;
+      }
+
+      .password {
+        font-weight: 700;
+        letter-spacing: 6px;
+      }
+
+      .alert-wrap {
+        padding: 24px 40px 0 40px;
+      }
+
+      .alert {
+        background-color: #f5f7fe;
+        border-radius: 6px;
+        padding: 12px 16px;
+        font-size: 14px;
+        line-height: 22px;
+        color: #2563eb;
+        text-align: center;
+      }
+
+      .button-wrap {
+        padding: 48px 20px 0 20px;
+        text-align: center;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #023dff;
+        color: #ffffff !important;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        line-height: 16px;
+        font-weight: 700;
+        padding: 14px 28px;
+        border-radius: 999px;
+      }
+
+      .expires {
+        font-size: 14px;
+        line-height: 22px;
+        color: #8a90a8;
+        text-align: center;
+        padding: 48px 20px;
+      }
+
+      .footer {
+        border-top: 1px solid #ededed;
+        padding: 26px 20px;
+        text-align: center;
+      }
+
+      .logo-small {
+        width: 80px;
+        max-width: 80px;
+        margin: 0 auto 10px auto;
+      }
+
+      .footer-text {
+        font-size: 14px;
+        line-height: 22px;
+        color: #4b567c;
+        margin: 0;
+      }
+
+      .footer-team {
+        font-size: 14px;
+        line-height: 22px;
+        color: #1a2757;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+
+      .footer-link {
+        font-size: 14px;
+        line-height: 22px;
+        color: #4b567c;
+        text-decoration: none;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #ededed;
+        text-align: center;
+        padding: 18px 20px;
+      }
+
+      .footer-bottom-text {
+        font-size: 12px;
+        line-height: 18px;
+        color: #8a90a8;
+        margin: 0;
+      }
+
+      @media only screen and (max-width: 640px) {
+        .main {
+          border-left: none !important;
+          border-right: none !important;
+        }
+
+        .content,
+        .field-wrap,
+        .alert-wrap {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+
+        .header {
+          padding: 24px 20px !important;
+        }
+
+        .hero-space {
+          height: 240px !important;
+        }
+
+        .hero-title {
+          font-size: 34px !important;
+          line-height: 40px !important;
+          padding-top: 80px !important;
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
+
+        .box {
+          font-size: 18px !important;
+          line-height: 24px !important;
+          padding: 14px !important;
+        }
+
+        .password {
+          letter-spacing: 4px !important;
+        }
+
+        .button {
+          display: block !important;
+          width: 100% !important;
+          max-width: 280px !important;
+          margin: 0 auto !important;
+          box-sizing: border-box !important;
+          text-align: center !important;
+        }
+
+        .text-spacer {
+          height: 20px !important;
+          line-height: 20px !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <table role='presentation' width='100%' class='wrapper'>
+      <tr>
+        <td align='center'>
+          <table role='presentation' width='620' class='main'>
+            <tr>
+              <td class='header' align='center'>
+                <img
+                  src='https://pub-00365c6f18d64e1f962879394176d9e9.r2.dev/public/Logo%20(1).png'
+                  alt='Atlas Ecolab'
+                  style='display:block; margin:0 auto;'
+                  class='logo'
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td class='hero'>
+                <table role='presentation' width='100%'>
+                  <tr>
+                    <td class='hero-space' valign='top' align='center'>
+                      <div class='hero-title'>Boas-vindas!</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class='content'>
+                <p class='text'>Olá, <span class='bold'>{{userName}}!</span></p>
+                <div class='text-spacer'>&nbsp;</div>
+                <p class='text'>
+                  Você foi convidado(a) para se juntar ao
+                  <span class='bold'>Atlas Ecolab</span>.
+                </p>
+                <div class='text-spacer'>&nbsp;</div>
+                <p class='text'>
+                  Use a senha temporária abaixo para validar sua conta.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td height='36' style='font-size: 0; line-height: 0;'>&nbsp;</td>
+            </tr>
+
+            <tr>
+              <td class='field-wrap'>
+                <div class='field-label'>Seu e-mail de login</div>
+                <div class='box'>{{userEmail}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td height='20' style='font-size: 0; line-height: 0;'>&nbsp;</td>
+            </tr>
+
+            <tr>
+              <td class='field-wrap'>
+                <div class='field-label'>Sua senha temporária</div>
+                <div class='box password'>{{password}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class='alert-wrap'>
+                <div class='alert'>
+                  Altere sua senha imediatamente após o primeiro acesso.
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class='button-wrap' align='center'>
+                <a href='{{loginUrl}}' class='button'>Validar conta</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td class='expires'>
+                Este e-mail expira em 15 minutos
+              </td>
+            </tr>
+
+            <tr>
+              <td class='footer' align='center'>
+                <img
+                  src='https://pub-00365c6f18d64e1f962879394176d9e9.r2.dev/public/Logo%20(1).png'
+                  alt='Atlas Ecolab'
+                  class='logo-small'
+                />
+                <p class='footer-text'>
+                  Se precisar de ajuda ou tiver qualquer dúvida, fale com nosso
+                  time.
+                </p>
+                <p class='footer-team'>Equipe Atlas Ecolab</p>
+                <a href='mailto:contato@atlasecolab.com.br' class='footer-link'>
+                  contato@atlasecolab.com.br
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td class='footer-bottom' align='center'>
+                <p class='footer-bottom-text'>
+                  ©
+                  {{year}}
+                  Atlas Ecolab. Todos os direitos reservados.
+                </p>
+                <p class='footer-bottom-text'>
+                  Esta é uma mensagem automática, não responda a este e-mail.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

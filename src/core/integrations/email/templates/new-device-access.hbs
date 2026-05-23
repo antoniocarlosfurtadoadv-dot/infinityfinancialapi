@@ -1,0 +1,422 @@
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novo acesso detectado</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      img {
+        border: 0;
+        display: block;
+        line-height: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .wrapper {
+        width: 100%;
+        table-layout: fixed;
+        background-color: #ffffff;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-left: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+      }
+
+      .header {
+        text-align: center;
+        padding: 32px 24px;
+        border-bottom: 1px solid #ededed;
+      }
+
+      .logo {
+        width: 94px;
+        max-width: 94px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        text-align: center;
+        background-image: url('https://pub-00365c6f18d64e1f962879394176d9e9.r2.dev/public/background-others.png');
+        background-size: contain;
+        background-position: center top;
+        background-repeat: no-repeat;
+        padding: 56px 20px 64px;
+      }
+
+      .iconHero {
+        width: 140px;
+        max-width: 140px;
+        margin: 0 auto 20px auto;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+        line-height: 48px;
+        color: #071c5f;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .content {
+        padding: 0 40px;
+        color: #071c5f;
+      }
+
+      .content p {
+        margin: 0;
+        line-height: 24px;
+        font-size: 15px;
+      }
+
+      .space {
+        height: 24px;
+        line-height: 24px;
+        font-size: 0;
+      }
+
+      .bold {
+        font-weight: 700;
+        color: #071c5f;
+      }
+
+      .field {
+        padding: 32px 40px 0;
+        text-align: center;
+      }
+
+      .box {
+        background: #f6f6fa;
+        padding: 20px 16px;
+        border: 1px solid #ebedf0;
+        border-radius: 6px;
+        color: #071c5f;
+        word-break: break-word;
+      }
+
+      .device {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 26px;
+        color: #071c5f;
+        text-align: center;
+      }
+
+      .meta-table {
+        width: 100%;
+        margin-top: 16px;
+      }
+
+      .meta-row td {
+        padding: 10px 0;
+        border-top: 1px solid #ebedf0;
+        font-size: 14px;
+        line-height: 20px;
+        vertical-align: top;
+      }
+
+      .meta-label {
+        color: #5d678a;
+        font-weight: 600;
+        text-align: left;
+        padding-right: 12px;
+      }
+
+      .meta-value {
+        color: #071c5f;
+        font-weight: 600;
+        text-align: right;
+        word-break: break-word;
+      }
+
+      .button-container {
+        padding: 40px 20px 0;
+        text-align: center;
+      }
+
+      .button-secondary {
+        display: inline-block;
+        color: #1f2937 !important;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        word-break: break-word;
+      }
+
+      .alert {
+        margin: 32px 40px 0;
+        padding: 14px 16px;
+        border: 1px solid #dbdde1;
+        border-radius: 6px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      .alert-danger {
+        background: #fef2f2;
+        border-color: #fecaca;
+        color: #cc1f1f;
+      }
+
+      .expires {
+        text-align: center;
+        font-size: 14px;
+        line-height: 22px;
+        color: #8a90a8;
+        padding: 32px 20px 48px;
+      }
+
+      .footer {
+        border-top: 1px solid #ededed;
+        padding: 26px 20px;
+        text-align: center;
+      }
+
+      .logo-small {
+        width: 80px;
+        max-width: 80px;
+        margin: 0 auto 10px auto;
+      }
+
+      .footer p {
+        font-size: 14px;
+        color: #4b567c;
+        margin: 0 0 10px 0;
+        line-height: 22px;
+      }
+
+      .team {
+        font-weight: 700;
+        color: #1a2757;
+      }
+
+      .footer a {
+        color: #4b567c;
+        text-decoration: none;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #ededed;
+        text-align: center;
+        padding: 18px 20px;
+      }
+
+      .footer-bottom p {
+        font-size: 12px;
+        color: #8a90a8;
+        margin: 0 0 4px 0;
+        line-height: 18px;
+      }
+
+      @media only screen and (max-width: 640px) {
+        .container {
+          border-left: none !important;
+          border-right: none !important;
+        }
+
+        .header {
+          padding: 24px 20px !important;
+        }
+
+        .hero {
+          padding: 44px 16px 52px !important;
+          background-size: contain !important;
+        }
+
+        .iconHero {
+          width: 104px !important;
+          max-width: 104px !important;
+          margin-bottom: 18px !important;
+        }
+
+        .hero h1 {
+          font-size: 30px !important;
+          line-height: 38px !important;
+        }
+
+        .content,
+        .field {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+
+        .alert {
+          margin-left: 20px !important;
+          margin-right: 20px !important;
+        }
+
+        .meta-label,
+        .meta-value {
+          display: block !important;
+          width: 100% !important;
+          text-align: left !important;
+        }
+
+        .meta-value {
+          padding-top: 4px !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <table role="presentation" width="100%" class="wrapper">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="620" class="container">
+            <tr>
+              <td class="header" align="center">
+                <img
+                  src="https://pub-00365c6f18d64e1f962879394176d9e9.r2.dev/public/Logo%20(1).png"
+                  alt="Atlas Ecolab"
+                  style="display:block; margin:0 auto;"
+                  class="logo"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td class="hero" align="center">
+                <img
+                  src="https://pub-00365c6f18d64e1f962879394176d9e9.r2.dev/public/door.png"
+                  class="iconHero"
+                  alt="Ícone de acesso"
+                />
+                <h1>Novo acesso detectado</h1>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="content">
+                <p>Olá, <span class="bold">{{userName}}!</span></p>
+
+                <div class="space">&nbsp;</div>
+
+                <p>
+                  Detectamos um novo acesso à sua conta no
+                  <span class="bold">Atlas Ecolab</span>.<br />
+                  Confira os detalhes abaixo.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="field">
+                <div class="box">
+                  <div class="device">{{deviceInfo}}</div>
+
+                  <table
+                    role="presentation"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    class="meta-table"
+                  >
+                    {{#if accessTime}}
+                      <tr class="meta-row">
+                        <td class="meta-label">Data e hora</td>
+                        <td class="meta-value">{{accessTime}}</td>
+                      </tr>
+                    {{/if}}
+
+                    {{#if deviceInfo}}
+                      <tr class="meta-row">
+                        <td class="meta-label">Dispositivo</td>
+                        <td class="meta-value">{{deviceInfo}}</td>
+                      </tr>
+                    {{/if}}
+
+                    {{#if location}}
+                      <tr class="meta-row">
+                        <td class="meta-label">Localização</td>
+                        <td class="meta-value">{{location}}</td>
+                      </tr>
+                    {{/if}}
+
+                    {{#if ipAddress}}
+                      <tr class="meta-row">
+                        <td class="meta-label">Endereço IP</td>
+                        <td class="meta-value">{{ipAddress}}</td>
+                      </tr>
+                    {{/if}}
+                  </table>
+                </div>
+              </td>
+            </tr>
+
+            {{#if true}}
+              <tr>
+                <td class="button-container" align="center">
+                  <a href="{{securityUrl}}" class="button-secondary">
+                    Redefinir senha
+                  </a>
+                </td>
+              </tr>
+            {{/if}}
+
+            <tr>
+              <td>
+                <div class="alert alert-danger">
+                  Não reconhece esse acesso? Redefina sua senha imediatamente.
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="expires">
+                Se este acesso for reconhecido, nenhuma ação adicional é necessária.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="footer" align="center">
+                <img
+                  src="https://pub-00365c6f18d64e1f962879394176d9e9.r2.dev/public/Logo%20(1).png"
+                  alt="Atlas Ecolab"
+                  class="logo-small"
+                />
+
+                <p>
+                  Se precisar de ajuda ou tiver qualquer dúvida, fale com nosso time.
+                </p>
+
+                <p class="team">Equipe Atlas Ecolab</p>
+
+                <a href="mailto:contato@atlasecolab.com.br">
+                  contato@atlasecolab.com.br
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="footer-bottom">
+                <p>© {{year}} Atlas Ecolab. Todos os direitos reservados.</p>
+                <p>Esta é uma mensagem automática, não responda a este e-mail.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
