@@ -47,6 +47,7 @@ model User {
   logs          Log[]
   refreshTokens RefreshToken[]
   userTokens    UserToken[]
+  notifications Notification[]
 
   @@map("users")
 }
@@ -188,4 +189,33 @@ model Invoice {
 
   @@index([subscriptionId])
   @@map("invoices")
+}
+
+model Notification {
+  id String @id @default(uuid())
+
+  title   String
+  message String
+  type    NotificationType @default(INFO)
+
+  read   Boolean   @default(false)
+  readAt DateTime?
+
+  entityType String? // Task, User, Team, etc.
+  entityId   String? // ID of the related entity
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+
+  @@map("notifications")
+}
+
+enum NotificationType {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
 }
