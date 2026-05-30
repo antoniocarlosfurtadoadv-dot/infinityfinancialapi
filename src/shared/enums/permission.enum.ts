@@ -1,6 +1,7 @@
 export enum Permission {
   // 1. Dashboard
   DASHBOARD_VISUALIZAR_FINANCEIRO = "dashboard:visualizar_financeiro",
+  DASHBOARD_VISUALIZAR_OPERACIONAL = "dashboard:visualizar_operacional",
 
   // 2. Gestão do Sistema
   GESTAO_GERENCIAR_PERFIS = "gestao:gerenciar_perfis",
