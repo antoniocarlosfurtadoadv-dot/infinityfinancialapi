@@ -21,6 +21,7 @@ model Tenant {
   updatedAt    DateTime      @updatedAt
   users        User[]
   logs         Log[]
+  roleProfiles RoleProfile[]
   subscription Subscription?
 
   @@map("tenants")
@@ -57,6 +58,9 @@ model RoleProfile {
   name               String
   description        String?
   defaultPermissions String[] @map("default_permissions")
+
+  tenantId String? @map("tenant_id")
+  tenant   Tenant? @relation(fields: [tenantId], references: [id])
 
   users     User[]
   createdAt DateTime  @default(now())

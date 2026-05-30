@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.js"
-import type * as Prisma from "../internal/prismaNamespace.js"
+import type * as $Enums from "../enums"
+import type * as Prisma from "../internal/prismaNamespace"
 
 /**
  * Model Tenant
@@ -184,6 +184,7 @@ export type TenantWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Tenant"> | Date | string
   users?: Prisma.UserListRelationFilter
   logs?: Prisma.LogListRelationFilter
+  roleProfiles?: Prisma.RoleProfileListRelationFilter
   subscription?: Prisma.XOR<Prisma.SubscriptionNullableScalarRelationFilter, Prisma.SubscriptionWhereInput> | null
 }
 
@@ -195,6 +196,7 @@ export type TenantOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   users?: Prisma.UserOrderByRelationAggregateInput
   logs?: Prisma.LogOrderByRelationAggregateInput
+  roleProfiles?: Prisma.RoleProfileOrderByRelationAggregateInput
   subscription?: Prisma.SubscriptionOrderByWithRelationInput
 }
 
@@ -209,6 +211,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"Tenant"> | Date | string
   users?: Prisma.UserListRelationFilter
   logs?: Prisma.LogListRelationFilter
+  roleProfiles?: Prisma.RoleProfileListRelationFilter
   subscription?: Prisma.XOR<Prisma.SubscriptionNullableScalarRelationFilter, Prisma.SubscriptionWhereInput> | null
 }, "id">
 
@@ -242,6 +245,7 @@ export type TenantCreateInput = {
   updatedAt?: Date | string
   users?: Prisma.UserCreateNestedManyWithoutTenantInput
   logs?: Prisma.LogCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileCreateNestedManyWithoutTenantInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutTenantInput
 }
 
@@ -253,6 +257,7 @@ export type TenantUncheckedCreateInput = {
   updatedAt?: Date | string
   users?: Prisma.UserUncheckedCreateNestedManyWithoutTenantInput
   logs?: Prisma.LogUncheckedCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileUncheckedCreateNestedManyWithoutTenantInput
   subscription?: Prisma.SubscriptionUncheckedCreateNestedOneWithoutTenantInput
 }
 
@@ -264,6 +269,7 @@ export type TenantUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUpdateManyWithoutTenantNestedInput
   logs?: Prisma.LogUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUpdateManyWithoutTenantNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutTenantNestedInput
 }
 
@@ -275,6 +281,7 @@ export type TenantUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUncheckedUpdateManyWithoutTenantNestedInput
   logs?: Prisma.LogUncheckedUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUncheckedUpdateManyWithoutTenantNestedInput
   subscription?: Prisma.SubscriptionUncheckedUpdateOneWithoutTenantNestedInput
 }
 
@@ -364,6 +371,22 @@ export type TenantUpdateOneWithoutUsersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutUsersInput, Prisma.TenantUpdateWithoutUsersInput>, Prisma.TenantUncheckedUpdateWithoutUsersInput>
 }
 
+export type TenantCreateNestedOneWithoutRoleProfilesInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutRoleProfilesInput, Prisma.TenantUncheckedCreateWithoutRoleProfilesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutRoleProfilesInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneWithoutRoleProfilesNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutRoleProfilesInput, Prisma.TenantUncheckedCreateWithoutRoleProfilesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutRoleProfilesInput
+  upsert?: Prisma.TenantUpsertWithoutRoleProfilesInput
+  disconnect?: Prisma.TenantWhereInput | boolean
+  delete?: Prisma.TenantWhereInput | boolean
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutRoleProfilesInput, Prisma.TenantUpdateWithoutRoleProfilesInput>, Prisma.TenantUncheckedUpdateWithoutRoleProfilesInput>
+}
+
 export type TenantCreateNestedOneWithoutLogsInput = {
   create?: Prisma.XOR<Prisma.TenantCreateWithoutLogsInput, Prisma.TenantUncheckedCreateWithoutLogsInput>
   connectOrCreate?: Prisma.TenantCreateOrConnectWithoutLogsInput
@@ -401,6 +424,7 @@ export type TenantCreateWithoutUsersInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   logs?: Prisma.LogCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileCreateNestedManyWithoutTenantInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutTenantInput
 }
 
@@ -411,6 +435,7 @@ export type TenantUncheckedCreateWithoutUsersInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   logs?: Prisma.LogUncheckedCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileUncheckedCreateNestedManyWithoutTenantInput
   subscription?: Prisma.SubscriptionUncheckedCreateNestedOneWithoutTenantInput
 }
 
@@ -437,6 +462,7 @@ export type TenantUpdateWithoutUsersInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   logs?: Prisma.LogUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUpdateManyWithoutTenantNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutTenantNestedInput
 }
 
@@ -446,6 +472,67 @@ export type TenantUncheckedUpdateWithoutUsersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  logs?: Prisma.LogUncheckedUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUncheckedUpdateManyWithoutTenantNestedInput
+  subscription?: Prisma.SubscriptionUncheckedUpdateOneWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutRoleProfilesInput = {
+  id?: string
+  name: string
+  description?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserCreateNestedManyWithoutTenantInput
+  logs?: Prisma.LogCreateNestedManyWithoutTenantInput
+  subscription?: Prisma.SubscriptionCreateNestedOneWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutRoleProfilesInput = {
+  id?: string
+  name: string
+  description?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutTenantInput
+  logs?: Prisma.LogUncheckedCreateNestedManyWithoutTenantInput
+  subscription?: Prisma.SubscriptionUncheckedCreateNestedOneWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutRoleProfilesInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutRoleProfilesInput, Prisma.TenantUncheckedCreateWithoutRoleProfilesInput>
+}
+
+export type TenantUpsertWithoutRoleProfilesInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutRoleProfilesInput, Prisma.TenantUncheckedUpdateWithoutRoleProfilesInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutRoleProfilesInput, Prisma.TenantUncheckedCreateWithoutRoleProfilesInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutRoleProfilesInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutRoleProfilesInput, Prisma.TenantUncheckedUpdateWithoutRoleProfilesInput>
+}
+
+export type TenantUpdateWithoutRoleProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUpdateManyWithoutTenantNestedInput
+  logs?: Prisma.LogUpdateManyWithoutTenantNestedInput
+  subscription?: Prisma.SubscriptionUpdateOneWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutRoleProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUncheckedUpdateManyWithoutTenantNestedInput
   logs?: Prisma.LogUncheckedUpdateManyWithoutTenantNestedInput
   subscription?: Prisma.SubscriptionUncheckedUpdateOneWithoutTenantNestedInput
 }
@@ -457,6 +544,7 @@ export type TenantCreateWithoutLogsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.UserCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileCreateNestedManyWithoutTenantInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutTenantInput
 }
 
@@ -467,6 +555,7 @@ export type TenantUncheckedCreateWithoutLogsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.UserUncheckedCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileUncheckedCreateNestedManyWithoutTenantInput
   subscription?: Prisma.SubscriptionUncheckedCreateNestedOneWithoutTenantInput
 }
 
@@ -493,6 +582,7 @@ export type TenantUpdateWithoutLogsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUpdateManyWithoutTenantNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutTenantNestedInput
 }
 
@@ -503,6 +593,7 @@ export type TenantUncheckedUpdateWithoutLogsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUncheckedUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUncheckedUpdateManyWithoutTenantNestedInput
   subscription?: Prisma.SubscriptionUncheckedUpdateOneWithoutTenantNestedInput
 }
 
@@ -514,6 +605,7 @@ export type TenantCreateWithoutSubscriptionInput = {
   updatedAt?: Date | string
   users?: Prisma.UserCreateNestedManyWithoutTenantInput
   logs?: Prisma.LogCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutSubscriptionInput = {
@@ -524,6 +616,7 @@ export type TenantUncheckedCreateWithoutSubscriptionInput = {
   updatedAt?: Date | string
   users?: Prisma.UserUncheckedCreateNestedManyWithoutTenantInput
   logs?: Prisma.LogUncheckedCreateNestedManyWithoutTenantInput
+  roleProfiles?: Prisma.RoleProfileUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutSubscriptionInput = {
@@ -550,6 +643,7 @@ export type TenantUpdateWithoutSubscriptionInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUpdateManyWithoutTenantNestedInput
   logs?: Prisma.LogUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutSubscriptionInput = {
@@ -560,6 +654,7 @@ export type TenantUncheckedUpdateWithoutSubscriptionInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUncheckedUpdateManyWithoutTenantNestedInput
   logs?: Prisma.LogUncheckedUpdateManyWithoutTenantNestedInput
+  roleProfiles?: Prisma.RoleProfileUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 
@@ -570,11 +665,13 @@ export type TenantUncheckedUpdateWithoutSubscriptionInput = {
 export type TenantCountOutputType = {
   users: number
   logs: number
+  roleProfiles: number
 }
 
 export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | TenantCountOutputTypeCountUsersArgs
   logs?: boolean | TenantCountOutputTypeCountLogsArgs
+  roleProfiles?: boolean | TenantCountOutputTypeCountRoleProfilesArgs
 }
 
 /**
@@ -601,6 +698,13 @@ export type TenantCountOutputTypeCountLogsArgs<ExtArgs extends runtime.Types.Ext
   where?: Prisma.LogWhereInput
 }
 
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountRoleProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RoleProfileWhereInput
+}
+
 
 export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -610,6 +714,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   updatedAt?: boolean
   users?: boolean | Prisma.Tenant$usersArgs<ExtArgs>
   logs?: boolean | Prisma.Tenant$logsArgs<ExtArgs>
+  roleProfiles?: boolean | Prisma.Tenant$roleProfilesArgs<ExtArgs>
   subscription?: boolean | Prisma.Tenant$subscriptionArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tenant"]>
@@ -642,6 +747,7 @@ export type TenantOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | Prisma.Tenant$usersArgs<ExtArgs>
   logs?: boolean | Prisma.Tenant$logsArgs<ExtArgs>
+  roleProfiles?: boolean | Prisma.Tenant$roleProfilesArgs<ExtArgs>
   subscription?: boolean | Prisma.Tenant$subscriptionArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -653,6 +759,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   objects: {
     users: Prisma.$UserPayload<ExtArgs>[]
     logs: Prisma.$LogPayload<ExtArgs>[]
+    roleProfiles: Prisma.$RoleProfilePayload<ExtArgs>[]
     subscription: Prisma.$SubscriptionPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1057,6 +1164,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   readonly [Symbol.toStringTag]: "PrismaPromise"
   users<T extends Prisma.Tenant$usersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$usersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   logs<T extends Prisma.Tenant$logsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$logsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  roleProfiles<T extends Prisma.Tenant$roleProfilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$roleProfilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RoleProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   subscription<T extends Prisma.Tenant$subscriptionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$subscriptionArgs<ExtArgs>>): Prisma.Prisma__SubscriptionClient<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1530,6 +1638,30 @@ export type Tenant$logsArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   distinct?: Prisma.LogScalarFieldEnum | Prisma.LogScalarFieldEnum[]
+}
+
+/**
+ * Tenant.roleProfiles
+ */
+export type Tenant$roleProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RoleProfile
+   */
+  select?: Prisma.RoleProfileSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RoleProfile
+   */
+  omit?: Prisma.RoleProfileOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RoleProfileInclude<ExtArgs> | null
+  where?: Prisma.RoleProfileWhereInput
+  orderBy?: Prisma.RoleProfileOrderByWithRelationInput | Prisma.RoleProfileOrderByWithRelationInput[]
+  cursor?: Prisma.RoleProfileWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RoleProfileScalarFieldEnum | Prisma.RoleProfileScalarFieldEnum[]
 }
 
 /**
