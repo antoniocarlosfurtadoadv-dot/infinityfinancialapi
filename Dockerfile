@@ -57,4 +57,5 @@ EXPOSE 3001
 # Use dumb-init to handle signals properly
 ENTRYPOINT ["dumb-init", "--"]
 
-CMD ["./docker-entrypoint.sh"]
+# Run migrations and start the application
+CMD ["/bin/sh", "-c", "npx prisma migrate deploy && node dist/main"]
